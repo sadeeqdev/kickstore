@@ -7,5 +7,16 @@ import useCachedResources from "./src/hooks/useCachedResources";
 import AppNavigator from "./src/navigation/AppNavigator";
 
 export default function App() {
-  return <AppNavigator />;
+  const { isLoadingComplete } = useCachedResources();
+  if (isLoadingComplete) {
+    return (
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <BottomSheetModalProvider>
+          <AppNavigator />
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
+    );
+  } else {
+    return null;
+  }
 }
