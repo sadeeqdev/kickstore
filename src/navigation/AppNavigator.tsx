@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, View } from "react-native";
 
@@ -48,6 +48,7 @@ const tabConfigs = [
 ];
 
 const AppNavigator: React.FC = () => {
+  const navigation = useNavigation();
   const renderMenuButton = () => (
     <TouchableOpacity onPress={() => alert("Menu button pressed")}>
       <MenuIcon width={30} height={30} style={{ marginLeft: 20 }} />
